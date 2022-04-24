@@ -16,7 +16,19 @@
 
   <dependencies>
     <!--Add dependencies on Lombok Mapstruct-->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${org.mapstruct.version}</version>
+    </dependency>
 
+    <!-- lombok dependency should not end up on classpath -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${org.projectlombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -46,7 +58,23 @@
           <target>1.8</target>
           <annotationProcessorPaths>
             <!--Add annotation processors lombok mapstruct-->
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${org.mapstruct.version}</version>
+            </path>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${org.projectlombok.version}</version>
+            </path>
 
+            <!-- additional annotation processor required as of Lombok 1.18.16 -->
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok-mapstruct-binding</artifactId>
+              <version>0.1.0</version>
+            </path>
           </annotationProcessorPaths>
         </configuration>
       </plugin>
