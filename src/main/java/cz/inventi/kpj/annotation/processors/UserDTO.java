@@ -5,10 +5,8 @@ import java.util.Objects;
 public class UserDTO {
 
   private String username;
-
   private String name;
   private String surname;
-
   private String phone;
 
   public UserDTO() {
